@@ -84,7 +84,7 @@
         }
       ],
       "title": "Sample Panel Title",
-      "type": "happn-hostmap-panel"
+      "type": "sbordeyne-hostmap-panel"
     },
     {
       "datasource": {
@@ -141,7 +141,7 @@
         }
       ],
       "title": "Sample Panel Title",
-      "type": "happn-hostmap-panel"
+      "type": "sbordeyne-hostmap-panel"
     }
   ],
   "preload": false,

@@ -2,7 +2,7 @@ import { getActiveThreshold } from '@grafana/data';
 import React from 'react';
 import { HostDisplay } from './HostDisplay';
 import { useTheme2 } from '@grafana/ui';
-import { getRectBbox, indexToRowCol } from 'utils';
+import { getRectBbox, getValueField, indexToRowCol } from 'utils';
 import { HostDetails, NodeInfos } from 'types';
 
 interface Props extends React.SVGAttributes<SVGGElement> {
@@ -27,7 +27,7 @@ export const HostGroup: React.FC<Props> = (props: Props) => {
   const totalNodeCount = Object.keys(nodes).length;
 
   Object.entries(nodes).forEach(([key, frames], frameIndex) => {
-    const field = frames[0]?.fields.find((f) => f.name === 'Value');
+    const field = getValueField(frames[0]);
     if (!field) {
       return;
     }

@@ -60,6 +60,8 @@ export const HostTooltip: React.FC<Props> = ({ x, y, frames, onClose }) => {
           onClose && onClose();
         }}
         style={{ cursor: 'pointer' }}
+        role="button"
+        aria-label="close tooltip"
       >
         <rect x={0} y={0} width={12} height={12} rx={2} ry={2} fill={theme.colors.background.primary} stroke={theme.colors.border.medium} />
         <text x={6} y={9} textAnchor="middle" fill={theme.colors.text.primary} fontSize={10} fontWeight={700} dominantBaseline="middle">

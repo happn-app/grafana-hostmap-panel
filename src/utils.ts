@@ -1,4 +1,4 @@
-import { DataFrame, Labels, PanelData } from "@grafana/data";
+import { DataFrame, Field, FieldType, Labels, PanelData } from "@grafana/data";
 import { NodeGroups, Rect } from "types";
 
 /**
@@ -114,10 +114,15 @@ export function getKeyForLabels(labels: Record<string, string>): string {
     .reduce((prev, curr) => `${prev};${curr}`, '');
 }
 
+// Prometheus names the value field "Value"; other datasources (e.g. TestData) use the series name.
+export function getValueField(frame: DataFrame | undefined): Field | undefined {
+  return frame?.fields.find((f) => f.name === 'Value') ?? frame?.fields.find((f) => f.type === FieldType.number);
+}
+
 export function groupBy(data: PanelData, groupLabel: string, nodeIdLabel: string): NodeGroups {
   const groups: NodeGroups = {};
   data.series.forEach((frame) => {
-    const field = frame.fields.find((f) => f.name === 'Value');
+    const field = getValueField(frame);
     if (!field) {
       return;
     }
