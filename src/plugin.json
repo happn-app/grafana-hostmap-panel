@@ -30,7 +30,7 @@
     "updated": "%TODAY%"
   },
   "dependencies": {
-    "grafanaDependency": ">=12.1.7 <12.2 || >=12.2.5",
+    "grafanaDependency": ">=13.0.0",
     "plugins": []
   },
   "languages": ["en-US", "fr-FR"]
