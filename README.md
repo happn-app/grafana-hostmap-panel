@@ -53,7 +53,7 @@ Use panel plugins when you want to do things like visualize data returned by dat
    npm run server
 
    # If you wish to start a certain Grafana version. If not specified will use latest by default
-   GRAFANA_VERSION=11.3.0 npm run server
+   GRAFANA_VERSION=13.3.0 npm run server
 
    # Starts the tests
    npm run e2e
